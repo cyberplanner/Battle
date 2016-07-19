@@ -1,3 +1,12 @@
-<%= session['value1'] if session['value1'] %> Vs. <%= session['value2'] if session['value2'] %>
+<%= session['player1'] if session['player1'] %> Vs. <%= session['player2'] if session['player2'] %>
 <br>
-Player 2 has <%= session['p2hitpoints'] %> Hit Points
+Player 2 has 10 Hit Points
+<br>
+<form action="/attack" method="get">
+  <label for="attack">
+    Attack player 2
+    <input type="submit" value="attack!">
+  </label>
+</form>
+
+<%= 'You hit player 2!' if session["attackconfim"] %>

@@ -10,14 +10,20 @@ enable :sessions
 
   post '/names' do
 
-    session['value1'] = params[:Player1]
-    session['value2'] = params[:Player2]
-    session['p2hitpoints'] = 10
+    session['player1'] = params[:Player1]
+    session['player2'] = params[:Player2]
     redirect '/play'
+
   end
 
   get '/play' do
     erb(:play)
+  end
+
+  get '/attack' do
+    @player_1_name = session['player1']
+    @player_2_name = session['player2']
+    erb(:attack)
   end
 
   # start the server if ruby file executed directly

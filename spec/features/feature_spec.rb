@@ -11,4 +11,10 @@ RSpec.feature "Enter player names", :type => :feature do
     expect(page).to have_text '10 Hit Points'
   end
 
+  scenario "Hit player two and confirm attack" do
+    sign_in_and_play
+    click_button("attack")
+    expect(page).to have_text 'Ben Attacked Ross'
+  end
+
 end

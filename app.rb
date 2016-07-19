@@ -12,6 +12,7 @@ enable :sessions
 
     session['value1'] = params[:Player1]
     session['value2'] = params[:Player2]
+    session['p2hitpoints'] = 10
     redirect '/play'
   end
 

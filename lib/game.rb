@@ -6,6 +6,7 @@ class Game
 
   def initialize(player1, player2)
     @players = [player1, player2]
+    @current_player = player1
   end
 
   def player1
@@ -18,5 +19,20 @@ class Game
 
   def attack(player)
     player.hit
+    switch_player
+  end
+
+  def current_player
+    @current_player
+  end
+
+  def switch_player
+    @players.map do | player |
+      if player == @current_player
+        @current_player = @players.last
+      else
+        @current_player = @players.first
+      end
+    end
   end
 end

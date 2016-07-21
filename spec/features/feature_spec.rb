@@ -24,4 +24,10 @@ RSpec.feature "Enter player names", :type => :feature do
     expect(page).to have_text 'Ross: 90 HP'
   end
 
+  scenario "switches a player turn after an attack" do
+    sign_in_and_play
+    click_button("attack!")
+    expect(page).to have_text "Ross's turn"
+  end
+
 end

@@ -2,7 +2,7 @@ require 'game'
 
 describe Game do
   let(:player1) { double :player1 }
-  let(:player2) { double :player2 }
+  let(:player2) { double :player2, hit: nil }
   subject(:game) { described_class.new(player1, player2) }
 
     it 'Game should take two players' do
@@ -24,5 +24,16 @@ describe Game do
       expect(player1).to receive(:hit)
       game.attack(player1)
     end
+
+    it 'switches a players turn' do
+      expect{ game.attack(player2) }.to change{game.current_player}.from(player1).to(player2)
+    end
+
+    context '#switch_player'
+      it 'switches players' do
+        expect(game.current_player).to eq player1
+        game.switch_player
+        expect(game.current_player).to eq player2
+      end
 
 end

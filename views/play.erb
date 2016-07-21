@@ -1,10 +1,20 @@
-<%= $game.player1.name %> Vs. <%= $game.player2.name %>
+<%= @game.attacker.name %> Vs. <%= @game.defender.name %>
 <br>
-<%= $game.player2.name %>: <%= $game.player2.hp %> HP
+<%= @game.player2.name %>: <%= @game.player2.hp %> HP
 <br>
+<%= @game.player1.name %>: <%= @game.player1.hp %> HP
+<hr>
 <form action="/attack" method="get">
     <input type="submit" value="attack!">
   </label>
 </form>
 
-You hit <%= $game.player2.name.capitalize %>
+
+<br>
+<% if @game.attacker == @game.player2 %>
+<%= @game.player1.name %> Attacked <%= @game.player2.name %>
+<% else %>
+<%= @game.player2.name %> Attacked <%= @game.player1.name %>
+<% end %>
+<hr>
+<%= @game.attacker.name %>'s turn

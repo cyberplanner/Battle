@@ -1,7 +1,9 @@
-<%= $game.player1.name %> Attacked <%= $game.player2.name %>
+
 <br>
-<%= $game.player2.name.capitalize%>: <%= $game.player2.hp%> HP
+<%= @game.player2.name.capitalize%>: <%= @game.player2.hp%> HP
 <br>
-<%= $game.current_player.name %>'s turn
+<%= @game.player1.name.capitalize%>: <%= @game.player1.hp%> HP
+<br>
+<%= @game.attacker.name %>'s turn
 <br>
 <a href="./play">OK</a>

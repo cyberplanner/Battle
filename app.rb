@@ -18,11 +18,13 @@ enable :sessions
   end
 
   get '/play' do
+    @game = $game
     erb(:play)
   end
 
   get '/attack' do
-    $game.attack($game.player2)
+    @game = $game
+    @game.attack(@game.defender)
     erb(:attack)
   end
 

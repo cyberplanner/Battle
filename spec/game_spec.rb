@@ -26,14 +26,14 @@ describe Game do
     end
 
     it 'switches a players turn' do
-      expect{ game.attack(player2) }.to change{game.current_player}.from(player1).to(player2)
+      expect{ game.attack(player2) }.to change{game.attacker}.from(player1).to(player2)
     end
 
     context '#switch_player'
       it 'switches players' do
-        expect(game.current_player).to eq player1
+        expect(game.attacker).to eq player1
         game.switch_player
-        expect(game.current_player).to eq player2
+        expect(game.attacker).to eq player2
       end
 
 end

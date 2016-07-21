@@ -9,11 +9,11 @@ class Game
   end
 
   def player1
-    @player1 = @players[0]
+    @players[0]
   end
 
   def player2
-    @player2 = @players[1]
+    @players[1]
   end
 
   def attack(player)
